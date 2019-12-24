@@ -12,6 +12,10 @@ def index_view(request):
     return render(request, 'index.html')
 
 
+def phone_view(request):
+    return render(request, 'phone.html')
+
+
 def signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
@@ -61,3 +65,7 @@ def logout_view(request):
         request,
         'logout.html'
     )
+
+
+def cart_view(request):
+    return render(request, 'cart.html')
