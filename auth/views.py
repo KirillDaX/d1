@@ -4,16 +4,8 @@ from django.shortcuts import render, redirect
 from auth.forms import SignupForm, LoginForm
 
 
-def home(request):
-    return render(request, 'home.html')
-
-
-def index_view(request):
-    return render(request, 'index.html')
-
-
-def phone_view(request):
-    return render(request, 'phone.html')
+def auth_page(request):
+    return render(request, 'auth_page.html')
 
 
 def signup(request):
@@ -66,6 +58,3 @@ def logout_view(request):
         'logout.html'
     )
 
-
-def cart_view(request):
-    return render(request, 'cart.html')

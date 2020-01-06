@@ -14,19 +14,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.contrib.auth import views as auth_views
 from django.urls import path
+from django.conf.urls.static import static
 
 import auth.views
+import coresite.views
+from main import settings
 
 urlpatterns = [
-    path('auth/', auth.views.home, name='auth'),
+    path('auth/', auth.views.auth_page, name='auth_page'),
     path('admin/', admin.site.urls),
     path('signup/', auth.views.signup, name='signup'),
     path('login/', auth.views.login_view, name='login'),
     path('logout/', auth.views.logout_view, name='logout'),
-    path('', auth.views.index_view, name='home'),
-    path('phone/', auth.views.phone_view, name='phone'),
-    path('cart/', auth.views.cart_view, name='cart'),
+    path('', coresite.views.index_view, name='index'),
+    path('index/', coresite.views.index_view, name='index'),
+    path('phone/', coresite.views.phone_view, name='phone'),
+    path('cart/', coresite.views.cart_view, name='cart'),
 ]
 # переназначил старый home на auth, index на home

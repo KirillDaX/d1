@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <main role="main">
 
@@ -15,6 +16,15 @@
     <div class="row">
 
       <div class="col-md-4">
+        {% for product in products %}
+          {{ product.title }}
+          {{ product.image }}
+          <picture>
+            <source srcset="/static/nexus5x_1E3F9Vc.webp" type="image/webp">
+            <img src="img.jpg" width="180">
+          </picture>
+          <img src="{{ product.image }}" width="180">
+        {% endfor %}
         <h2>Nexus 5x</h2>
 
         <a href="/phone">
@@ -66,7 +76,7 @@
     </div>
   </div>
 
-
+  <h3> Статьи: </h3>
   <div class="container mb-5">
     <!-- Example row of columns -->
     <div class="row">
