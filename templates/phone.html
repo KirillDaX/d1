@@ -12,13 +12,11 @@
         <img src="/{% if product.image %}{{ product.image.url }}{% endif %}" width="120">
 
         <p>{{ product.description | linebreaks}}</p>
-        <p class="price">
-        {{ product.price }} руб.
-      </p>
-        <form method="post" action="./cart/">
-          <input type="hidden" name="csrfmiddlewaretoken"
-                 value="N4vcBqzjoYkU7OTDuAT8hq8srpvYX44nJsswuP7e3EYg0Hq8DgxuR0eiXWbSr5RZ">
-          <input type="hidden" name="merchandise_id" value="1">
+        <p>{{ product.price }} руб.</p>
+
+        <form method="post" action="{% url "cart_add" product.id %}">
+        {{ cart_product_form }}
+        {% csrf_token %}
           <input type="submit" class="btn btn-secondary" value="Добавить в корзину »">
         </form>
       </div>

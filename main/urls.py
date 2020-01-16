@@ -19,6 +19,7 @@ from django.urls import path
 from django.conf.urls.static import static
 
 import auth.views
+import cart.views
 import coresite.views
 from main import settings
 
@@ -35,5 +36,7 @@ urlpatterns = [
     # url(r'^(?P<category_slug>[-\w]+)/$', coresite.views.ProductList, name='ProductListByCategory'),
     url(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$', coresite.views.product_detail, name='product_detail'),
     # url(r'^$', coresite.views.ProductList, name='ProductList'),
+    url(r'^remove/(?P<product_id>\d+)/$', cart.views.cart_remove, name='cart_remove'),
+    url(r'^add/(?P<product_id>\d+)/$', cart.views.cart_add, name='cart_add'),
+    url(r'^$', cart.views.cart_detail, name='cart_detail'),
 ]
-# переназначил старый home на auth, index на home

@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404
+
+from cart.forms import ProductAddCartForm
 from coresite.models import Product, Reviews, Article
 
 
@@ -22,7 +24,9 @@ def cart_view(request):
 
 def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
-    return render(request, 'phone.html', {'product': product})
+    cart_product_form = ProductAddCartForm()
+    return render(request, 'phone.html', {'product': product,
+                                          'cart_product_form': cart_product_form})
 
 # Страница с товарами
 # def ProductList(request, category_slug=None):
