@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf.urls import url
 from django.urls import path
 from django.conf.urls.static import static
 
@@ -29,7 +30,10 @@ urlpatterns = [
     path('logout/', auth.views.logout_view, name='logout'),
     path('', coresite.views.index_view, name='index'),
     path('index/', coresite.views.index_view, name='index'),
-    path('phone/', coresite.views.phone_view, name='phone'),
+    # path('phone/', coresite.views.product_detail, name='phone'),
     path('cart/', coresite.views.cart_view, name='cart'),
+    # url(r'^(?P<category_slug>[-\w]+)/$', coresite.views.ProductList, name='ProductListByCategory'),
+    url(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$', coresite.views.product_detail, name='product_detail'),
+    # url(r'^$', coresite.views.ProductList, name='ProductList'),
 ]
 # переназначил старый home на auth, index на home
