@@ -15,19 +15,18 @@ def cart_add(request, product_id):
         cart.add(product=product, quantity=cd['quantity'],
                  update_quantity=cd['update'])
     print('>>> cart_add', request.session.items())
-    return redirect('cart_detail')
+    return redirect('cart')
 
 
 def cart_remove(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     cart.remove(product)
-    return redirect('cart_detail')
+    return redirect('cart')
 
 
 def cart_detail(request):
     cart = Cart(request)
     return render(request, 'cart.html', {'cart': cart})
-
 
 # надо доразобраться с корзиной, в сессиях все есть но в корзине не видно нихрена.
