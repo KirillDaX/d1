@@ -12,12 +12,12 @@
         <img src="/{% if product.image %}{{ product.image.url }}{% endif %}" width="120">
 
         <p>{{ product.description | linebreaks}}</p>
-        <p>{{ product.price }} руб.</p>
+        <p><strong>{{ product.price }}</strong> руб.</p>
 
         <form method="post" action="{% url "cart_add" product.id %}">
-        {{ cart_product_form }}
-        {% csrf_token %}
-          <input type="submit" class="btn btn-secondary" value="Добавить в корзину »">
+          {{ cart_product_form }}
+          {% csrf_token %}
+          <input type="submit" class="btn btn-secondary" value="Добавить в корзину">
         </form>
       </div>
     </div>

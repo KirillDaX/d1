@@ -43,8 +43,9 @@
             <div class="text-muted mb-3">Цена: {{ item.price }} (Сумма: {{ item.total_price }})</div>
             <small class="text-muted">{{ product.description }}</small>
           </div>
-          <span class="text-muted">{{ item.quantity }} шт.</span>
-          <a href="{% url "cart_remove" product.id %}">Удалить</a>
+          <div>
+          <span class="text-muted">{{ item.quantity }} шт.</span><br>
+          <a href="{% url "cart_remove" product.id %}">Удалить</a></div>
         </li>
       </ul>
       {% endwith %}

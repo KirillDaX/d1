@@ -14,7 +14,6 @@ def cart_add(request, product_id):
         cd = form.cleaned_data
         cart.add(product=product, quantity=cd['quantity'],
                  update_quantity=cd['update'])
-    print('>>> cart_add', request.session.items())
     return redirect('cart')
 
 
@@ -29,4 +28,4 @@ def cart_detail(request):
     cart = Cart(request)
     return render(request, 'cart.html', {'cart': cart})
 
-# надо доразобраться с корзиной, в сессиях все есть но в корзине не видно нихрена.
+

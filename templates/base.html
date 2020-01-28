@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load customfilter %}
 
 <html lang="en" >
 <head>
@@ -39,7 +40,20 @@
       </li>
     </ul>
 
-    <a class="btn btn-outline-success my-2 my-sm-0" role="button" href="{% url 'cart' %}">Корзина</a>
+    <a class="btn btn-outline-success my-2 my-sm-0" role="button" href="{% url 'cart' %}">Корзина:
+
+      {% with total_items=cart|length %}
+        {% if cart|length > 0 %}
+
+
+        {{ total_items }} {{ total_items|pluralize:"товар,товара,товаров" }} на сумму:
+        {{ cart.get_sum_cart }} руб.
+
+        {% else %}
+        пусто.
+        {% endif %}
+      {% endwith %}
+    </a>
     <a class="btn btn-outline-success my-2 my-sm-0" role="button" href="{% url 'login' %}"> Войти</a>
   </div>
 </nav>
