@@ -34,6 +34,8 @@ class Product(models.Model):
     class Meta:
         ordering = ['-title']
         index_together = [['id', 'slug']]
+        verbose_name = 'Товар'
+        verbose_name_plural = 'Товары'
 
     def __str__(self):
         return self.title
@@ -49,6 +51,10 @@ class Reviews(models.Model):
     rate = models.PositiveIntegerField(default=5, validators=[MaxValueValidator(5), MinValueValidator(1)])
     body_text = models.TextField(max_length=500)
 
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
+
 
 class Article(models.Model):
     """ статьи """
@@ -63,5 +69,7 @@ class Article(models.Model):
 
     class Meta:
         ordering = ['-creation_date']
+        verbose_name = 'Статья'
+        verbose_name_plural = 'Статьи'
 
 

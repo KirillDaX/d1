@@ -5,13 +5,6 @@
   Ваша корзина товаров
 {% endblock %}
 {% block content %}
-
-
-
-
-
-
-
 <hr>
 <html lang="en" >
 <head>
@@ -51,7 +44,7 @@
       {% endwith %}
       {% endfor %}
       <div align="right" class="text-muted mb-3">Итого : {{ cart.get_sum_cart }}</div>
-      <form class="card p-2">
+      <form class="card p-2" action="{% url "order_create" %}">
         <button type="submit" class="btn btn-secondary">Заказать</button>
       </form>
     </div>

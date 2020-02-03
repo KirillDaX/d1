@@ -4,14 +4,14 @@ from coresite.models import Product
 
 class Order(models.Model):
     first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50, blank=True)
     email = models.EmailField()
     address = models.CharField(max_length=250)
-    postal_code = models.CharField(max_length=20)
+    postcode = models.CharField(max_length=20, blank=True)
     city = models.CharField(max_length=100)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    paid = models.BooleanField(default=False)
+    payment_state = models.BooleanField(default=False)
 
     class Meta:
         ordering = ('-created',)

@@ -5,12 +5,12 @@ from django.template.defaultfilters import register, stringfilter
 @stringfilter
 def pluralize(value, forms):
     """
-    Подбирает окончание существительному после числа
-    {{someval|pluralize:"товар,товара,товаров"}}
+    Ставим правильное окончание после числа
+    {{item_count|pluralize:"товар,товара,товаров"}}
     """
     try:
         one, two, many = forms.split(u',')
-        value = str(value)[-2:]  # 314 -> 14
+        value = str(value)[-2:]
 
         if 21 > int(value) > 4:
             return many
