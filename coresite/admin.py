@@ -4,7 +4,7 @@ from coresite.models import Product, Reviews, Article, Category
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug']
+    list_display = ['name', 'slug', 'parent']
     prepopulated_fields = {'slug': ('name', )}
 
 

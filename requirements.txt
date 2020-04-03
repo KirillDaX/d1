@@ -1,3 +1,4 @@
+django-mptt
 Django==3.0.1
 Paginator==0.5.1
 

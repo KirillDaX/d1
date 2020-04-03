@@ -38,13 +38,13 @@
           </div>
           <div>
           <span class="text-muted">{{ item.quantity }} шт.</span><br>
-          <a href="{% url "cart_remove" product.id %}">Удалить</a></div>
+          <a href="{% url "cart:cart_remove" product.id %}">Удалить</a></div>
         </li>
       </ul>
       {% endwith %}
       {% endfor %}
       <div align="right" class="text-muted mb-3">Итого : {{ cart.get_sum_cart }}</div>
-      <form class="card p-2" action="{% url "order_create" %}">
+      <form class="card p-2" action="{% url "cart:order_create" %}">
         <button type="submit" class="btn btn-secondary">Заказать</button>
       </form>
     </div>

@@ -1,6 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}
+    {% if category %}{{ category.name }}{% else %}Products{% endif %}
+{% endblock %}
 {% block content %}
+<!--<div id="sidebar">-->
+<!--        <h3>Категории</h3>-->
+<!--        <ul>-->
+<!--            <li {% if not category %}class="selected"{% endif %}>-->
+<!--                <a href="{% url "coresite:product_list" %}">Все категории</a>-->
+<!--            </li>-->
+<!--            {% for c in categories %}-->
+<!--                <li {% if category.slug == c.slug %}class="selected"{% endif %}>-->
+<!--                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>-->
+<!--                </li>-->
+<!--            {% endfor %}-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--<h1>{% if category %}{{ category.name }}{% else %}Все товары:{% endif %}</h1>-->
 <main role="main">
 
   <div class="jumbotron">
@@ -17,41 +34,13 @@
         <h2>{{ product.title }}</h2>
         <a href="{{ product.get_absolute_url }}"><img src="/{{ product.image }}" width="180"></a>
         <p><strong>{{ product.price }} руб.</strong></p>
-        <form method="post" action="{% url "cart_add" product.id %}">
+        <form method="post" action="{% url "cart:cart_add" product.id %}">
           {{ cart_product_form }}
           {% csrf_token %}
           <p><input type="submit" class="btn btn-secondary" value="Добавить в корзину"></p>
         </form>
       </div>
       {% endfor %}
-    </div>
-  </div>
-
-  <div class="jumbotron">
-    <div class="container">
-      <h1 class="display-4">Не знаете что одеть летом?</h1>
-      <p>Вот что мы можем предложить:</p>
-    </div>
-  </div>
-
-  <h3> Статьи: </h3>
-  <div class="container mb-5">
-    <div class="row">
-
-      <div class="col-md-4">
-        <h2>Фуфайка</h2>
-
-        <a href="/phone.html">
-
-          <img src="/static/fufajka.jpg" width="180">
-
-        </a>
-
-        <form>
-          <input type="submit" class="btn btn-secondary" value="Добавить в корзину »">
-        </form>
-      </div>
-
     </div>
   </div>
 

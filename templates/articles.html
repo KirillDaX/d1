@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block articles%}
+<div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4">Не знаете что одеть летом?</h1>
+      <p>Вот что мы можем предложить:</p>
+    </div>
+  </div>
+<h3> Статьи: </h3>
+  <div class="container mb-5">
+    <div class="row">
+
+      <div class="col-md-4">
+        <h2>Фуфайка</h2>
+
+        <a href="/phone.html">
+
+          <img src="/static/fufajka.jpg" width="180">
+
+        </a>
+
+        <form>
+          <input type="submit" class="btn btn-secondary" value="Добавить в корзину »">
+        </form>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
