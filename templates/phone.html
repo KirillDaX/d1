@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- phone.html  ограничение  по ТЗ, product_detail  должен  быть -->
 {% extends 'base.html' %}
 {% block content %}
 <main role="main">
@@ -7,12 +8,9 @@
     <div class="row">
       <div class="col-md-12">
         <h2>{{ product.title }}</h2>
-
         <img src="/{% if product.image %}{{ product.image.url }}{% endif %}" width="120">
-
         <p>{{ product.description | linebreaks}}</p>
         <p><strong>{{ product.price }}</strong> руб.</p>
-
         <form method="post" action="{% url "cart:cart_add" product.id %}">
           {{ cart_product_form }}
           {% csrf_token %}
