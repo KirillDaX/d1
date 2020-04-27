@@ -30,6 +30,7 @@ urlpatterns = [
     path('signup/', auth.views.signup, name='signup'),
     path('login/', auth.views.login_view, name='login'),
     path('logout/', auth.views.logout_view, name='logout'),
+    path('auth/', auth.views.auth_page, name='home'),  # надо поменять  везде home  на auth_page
     # -- main page ---
     url(r'^', include('coresite.urls', namespace='coresite')),
     # -- cart ---

@@ -9,8 +9,8 @@ class LoginForm(forms.Form):
     """
     Simple login form
     """
-    username = forms.CharField(max_length=25, label="Имя пользователя")
-    password = forms.CharField(max_length=30, label='Пароль', widget=forms.PasswordInput)
+    username = forms.CharField(max_length=25, label="Имя пользователя", help_text='- Email')
+    password = forms.CharField(max_length=30, label='Пароль', widget=forms.PasswordInput, help_text='- Password')
 
 
 class SignupForm(forms.ModelForm):
